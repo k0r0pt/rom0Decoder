@@ -22,17 +22,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * rom-0 Decoder class. This class has methods to extract rom-0 passwords.
+ *
  * @author etmatix <a href="https://github.com/etmatrix/">Etmatrix</a>
  * @author Sudipto Sarkar (k0r0pt) (sudiptosarkar@visioplanet.org).
  * @since 12 Oct, 2017 6:08 PM
  */
 public class RomZeroDecoder {
 
+  private static final int PASS_OFFSET = 0x14;
+
+  /**
+   * Utility method to extract password from rom-0 file, given the bytes from the file.
+   *
+   * @param abBuff  The bytes read from a valid rom-0 file
+   * @return        The extracted password
+   */
   public static String decodePassword(byte[] abBuff) {
-    char abDecomp[] = null;
+    char[] abDecomp = null;
     for (int iNdx = 3; iNdx < abBuff.length; iNdx++) {
       if (abBuff[iNdx - 3] == (byte) 0xCE && abBuff[iNdx - 2] == (byte) 0xED && abBuff[iNdx - 1] == (byte) 0xDB && abBuff[iNdx] == (byte) 0xDB) {
-        char abBuff2[] = new char[abBuff.length - iNdx];
+        char[] abBuff2 = new char[abBuff.length - iNdx];
         for (int iNdx2 = iNdx - 3, iNdx3 = 0; iNdx3 < abBuff.length - iNdx; iNdx2++, iNdx3++) {
           abBuff2[iNdx3] = (char) (abBuff[iNdx2] & 0xFF);
         }
@@ -49,7 +59,6 @@ public class RomZeroDecoder {
       }
     }
 
-    int PASS_OFFSET = 0x14;
     StringBuilder pass = new StringBuilder();
     int i = PASS_OFFSET;
     while ((abDecomp[i] > 32) && (abDecomp[i] < 0x7E)) {
@@ -62,7 +71,7 @@ public class RomZeroDecoder {
     return "".equals(pass.toString()) ? null : pass.toString();
   }
 
-  private static char[] decompress(char abBuff[]) {
+  private static char[] decompress(char[] abBuff) {
     List<Character> mylist = new ArrayList<>();
     int iNdx = 0;
     int unknown = abBuff[iNdx++] << 24 | abBuff[iNdx++] << 16 | abBuff[iNdx++] << 8 | abBuff[iNdx++];
@@ -72,7 +81,7 @@ public class RomZeroDecoder {
     while (iNdx < abBuff.length) {
       int orgSize = abBuff[iNdx++] << 8 | abBuff[iNdx++];
       int rawSize = abBuff[iNdx++] << 8 | abBuff[iNdx++];
-      char abCompress[] = new char[rawSize];
+      char[] abCompress = new char[rawSize];
       for (int iNdx2 = iNdx, iNdx3 = 0; iNdx3 < abCompress.length; iNdx2++, iNdx3++) {
         try {
           abCompress[iNdx3] = (char) (abBuff[iNdx2] & 0xFF);
@@ -89,7 +98,7 @@ public class RomZeroDecoder {
       mylist.addAll(l);
       iNdx += rawSize;
     }
-    char abRet[] = new char[mylist.size()];
+    char[] abRet = new char[mylist.size()];
     iNdx = 0;
     for (char b : mylist) {
       abRet[iNdx++] = b;
