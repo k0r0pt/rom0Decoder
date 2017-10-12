@@ -4,7 +4,7 @@ jdk:
 os:
   - linux
 script:
-  - ./gradlew clean build publish
+  - gradle clean build publish
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
