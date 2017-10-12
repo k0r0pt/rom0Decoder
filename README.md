@@ -1,6 +1,7 @@
 # Rom0Decoder
 ---
-[![Build Status](https://travis-ci.org/k0r0pt/rom0Decoder.png?branch=master)](https://travis-ci.org/k0r0pt/rom0Decoder)
+[![Build Status](https://travis-ci.org/k0r0pt/rom0Decoder.png?branch=master)](https://travis-ci.org/k0r0pt/rom0Decoder) [![codecov](https://codecov.io/gh/k0r0pt/rom0Decoder/branch/master/graph/badge.svg)](https://codecov.io/gh/k0r0pt/rom0Decoder)
+
 
 ---
 
