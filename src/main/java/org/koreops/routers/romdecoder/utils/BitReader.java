@@ -16,15 +16,17 @@
 package org.koreops.routers.romdecoder.utils;
 
 /**
+ * Bit Reader utility.
+ *
  * @author etmatix <a href="https://github.com/etmatrix/">Etmatrix</a>
  * @author Sudipto Sarkar (k0r0pt) (sudiptosarkar@visioplanet.org).
  * @since 12 Oct, 2017 6:11 PM
  */
 public class BitReader {
-  private final char buffer[];
+  private final char[] buffer;
   private int bitIndex;
 
-  public BitReader(char b[]) {
+  public BitReader(char[] b) {
     buffer = b;
     bitIndex = 0;
   }

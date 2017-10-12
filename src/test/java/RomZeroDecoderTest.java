@@ -17,13 +17,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.koreops.routers.romdecoder.RomZeroDecoder;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 
 /**
+ * Test class for RomZeroDecoder.
+ *
  * @author Sudipto Sarkar (k0r0pt) (sudiptosarkar@visioplanet.org).
  * @since 12 Oct, 2017 6:16 PM
  */

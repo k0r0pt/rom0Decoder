@@ -1,0 +1,6 @@
+ext {
+    libraryVersions = [
+            commonsCollections    :    '4.1',
+            junit                 :    '4.12'
+    ]
+}
