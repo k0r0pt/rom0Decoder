@@ -3,6 +3,13 @@ jdk:
   - oraclejdk8
 os:
   - linux
+# Handle git submodules on our own.
+git:
+  submodules: false
+# Replacing the SSH URL with the public URL and then updating the submodule.
+before_install:
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
 script:
   - gradle clean build publish
 before_cache:
