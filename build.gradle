@@ -1,4 +1,4 @@
-group 'org.koreops.routers'
+group 'org.k0r0pt.routers'
 version '1.0-SNAPSHOT'
 
 apply from: 'build_config/tasks.gradle'
