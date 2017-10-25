@@ -1,0 +1,34 @@
+{
+  "package": {
+    "name": "romdecoder",
+    "repo": "maven",
+    "subject": "sudiptosarkar",
+    "desc": "rom-0 utilities related to Project Tauro",
+    "website_url": "https://github.com/k0r0pt/Project-Tauro",
+    "issue_tracker_url": "https://github.com/k0r0pt/rom0Decoder/issues",
+    "vcs_url": "https://github.com/k0r0pt/rom0Decoder.git",
+    "licenses": [
+      "GPL-3.0"
+    ],
+    "labels": [
+      "java",
+      "bintray",
+      "gradle",
+      "k0r0pt"
+    ],
+    "public_download_numbers": false,
+    "public_stats": false
+  },
+  "version": {
+    "name": "1.0.0",
+    "released": "2017-10-25",
+    "gpgSign": false
+  },
+  "files": [
+    {
+      "includePattern": "build/libs/(.*)",
+      "uploadPattern": "org/k0r0pt/romdecoder/1.0.0/$1"
+    }
+  ],
+  "publish": true
+}
