@@ -27,7 +27,10 @@
   "files": [
     {
       "includePattern": "build/libs/(.*)",
-      "uploadPattern": "org/k0r0pt/routers/romdecoder/1.0.0/$1"
+      "uploadPattern": "org/k0r0pt/routers/romdecoder/1.0.0/$1",
+      "matrixParams": {
+        "override": 1
+      }
     }
   ],
   "publish": true
